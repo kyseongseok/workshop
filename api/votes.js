@@ -1,12 +1,12 @@
-// GET /api/votes → { counts: { "농과원-01": 12, ... }, total: 34 }
-// 관리자용 집계 조회 (화면에는 노출하지 않고, 필요 시 확인용)
-export default async function handler(req, res) {
-  try {
-    const r = await fetch(process.env.SHEETS_WEBAPP_URL, { redirect: 'follow' });
-    const data = await r.json();
-    res.setHeader('Cache-Control', 'no-store');
-    res.status(200).json(data);
-  } catch (e) {
-    res.status(200).json({ counts: {}, error: String(e) });
-  }
+// 집계 조회 API — 비활성화됨
+//
+// 원래는 GET /api/votes 로 득표 집계를 돌려주던 관리자용 함수였으나,
+// "투표 결과 비공개" 방침에 따라 외부에서 집계를 볼 수 없도록 막아두었습니다.
+// (화면에서는 이 주소를 호출하지 않으므로 투표 기능에는 영향이 없습니다.)
+//
+// 집계는 구글 시트의 "📊 투표 집계 → 집계표 만들기" 메뉴에서 확인하세요.
+//
+// 다시 열고 싶다면 아래 내용을 지우고 원래 코드로 되돌리면 됩니다.
+export default function handler(req, res) {
+  res.status(404).json({ error: 'not found' });
 }
