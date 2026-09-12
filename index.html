@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>2026 전문연구원 워크숍 — 연구방법론 공유대회</title>
+<meta name="description" content="농촌진흥청 전문연구원 연구방법론 공유대회 · 포스터 56편 온라인 투표">
+<style>
+:root{
+  --green:#18A06A; --green-d:#0E7A50; --mint:#E9F7F0; --mint-2:#D3EFE2;
+  --ink:#12231C; --ink-2:#4A5C54; --muted:#8C9B94; --line:#E4EDE8;
+  --heart:#F0456B; --amber:#F5A524;
+  --r:18px; --dock-h:132px;
+  --font:'Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--font);background:#fff;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;
+  padding-bottom:calc(var(--dock-h) + env(safe-area-inset-bottom))}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+button,input,select{font-family:inherit}
+
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{height:56px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:9px;min-width:0}
+.logo{width:36px;height:36px;border-radius:12px;flex-shrink:0;background:#fff;border:1.5px solid var(--mint-2);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4px 12px rgba(24,160,106,.16)}
+.logo img{width:90%;height:90%;object-fit:contain}
+.brand b{display:block;font-size:13.5px;font-weight:800;letter-spacing:-.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{font-size:11px;color:var(--muted);display:none}
+.hact{display:flex;gap:7px;align-items:center}
+.zipbtn{display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.zipbtn:hover{border-color:var(--green);color:var(--green-d)}
+.zipbtn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.hbtn{font-size:12.5px;font-weight:800;padding:9px 15px;border-radius:999px;border:0;cursor:pointer;white-space:nowrap;
+  background:var(--heart);color:#fff;box-shadow:0 5px 13px rgba(240,69,107,.26)}
+.hbtn.done{background:var(--mint);color:var(--green-d);box-shadow:none}
+
+.hero{background:linear-gradient(175deg,var(--mint) 0%,#fff 88%);padding:22px 0 20px}
+.hero .wrap{display:flex;flex-direction:column;gap:14px}
+.pill{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--mint-2);
+  color:var(--green-d);font-size:11.5px;font-weight:800;padding:6px 13px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:21.5px;font-weight:900;letter-spacing:-.9px;line-height:1.36;word-break:keep-all}
+.hero h1 mark{background:linear-gradient(transparent 62%,#BFF0DA 62%);color:inherit}
+.hero p{font-size:13.5px;color:var(--ink-2);line-height:1.65;word-break:keep-all}
+.hero-fig{display:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700}
+.chip b{color:var(--green)}
+
+.notice{margin:14px 16px 0;background:#FFF8EC;border:1px solid #FCE3B8;border-radius:14px;padding:12px 14px;
+  display:flex;gap:9px;font-size:12.5px;color:#8A5A11;font-weight:600;line-height:1.55}
+.notice svg{width:17px;height:17px;flex-shrink:0;color:var(--amber);margin-top:1px}
+.notice b{color:var(--heart)}
+
+.toolbar{position:sticky;top:56px;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);margin-top:14px;padding:9px 0 8px}
+.navs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 2px;scrollbar-width:none}
+.navs::-webkit-scrollbar{display:none}
+.nv{font-size:12.5px;font-weight:800;padding:8px 14px;border-radius:999px;color:var(--ink-2);background:#F4F8F6;
+  cursor:pointer;white-space:nowrap;border:0}
+.nv.on{background:var(--green);color:#fff;box-shadow:0 4px 11px rgba(24,160,106,.28)}
+.nv i{font-style:normal;opacity:.6;margin-left:4px;font-size:11px}
+.trow{display:flex;gap:8px;align-items:center;padding:8px 16px 0}
+.search{flex:1;display:flex;align-items:center;gap:7px;background:#F4F8F6;border-radius:999px;padding:9px 14px;min-width:0}
+.search input{border:0;outline:0;background:transparent;font-size:13px;width:100%;min-width:0}
+.tgl{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.sw{width:34px;height:20px;border-radius:999px;background:#DCE7E2;position:relative;transition:.2s;flex-shrink:0}
+.sw::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;left:2px;
+  transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.tgl.on .sw{background:var(--green)} .tgl.on .sw::after{left:16px}
+.vrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 16px 0}
+.viewed{font-size:11.5px;color:var(--muted);font-weight:600}
+.viewed b{color:var(--green)}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px 0 24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.card.sel{border-color:var(--heart);box-shadow:0 0 0 2px rgba(240,69,107,.16)}
+.thumb{position:relative;aspect-ratio:1/1;background:#FBFDFC;display:flex;align-items:center;justify-content:center;padding:7px;cursor:pointer}
+.thumb img{max-width:100%;max-height:100%;object-fit:contain}
+.code{position:absolute;top:8px;left:8px;background:rgba(18,35,28,.78);color:#fff;font-size:10px;font-weight:800;
+  padding:4px 8px;border-radius:999px;backdrop-filter:blur(4px);letter-spacing:.2px}
+.seen{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:rgba(24,160,106,.92);
+  display:none;align-items:center;justify-content:center}
+.card.seen-on .seen{display:flex}
+.seen svg{width:11px;height:11px;stroke:#fff;stroke-width:3.4;fill:none}
+.meta{padding:10px 11px 11px;flex:1;display:flex;flex-direction:column}
+.dept{font-size:10.5px;font-weight:800;color:var(--green);line-height:1.35;word-break:keep-all}
+.au{font-size:12.5px;font-weight:800;letter-spacing:-.3px;margin-top:3px;word-break:keep-all;line-height:1.35}
+.org{font-size:10.5px;color:var(--muted);margin-top:2px}
+.foot{display:flex;align-items:center;gap:6px;margin-top:9px}
+.vote{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;border:1.5px solid var(--line);
+  background:#fff;border-radius:999px;padding:8px 6px;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;transition:.15s}
+.vote.on{background:var(--heart);border-color:var(--heart);color:#fff}
+.vote svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.3}
+.vote.on svg{fill:#fff}
+.dl{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:#F4F8F6;display:flex;align-items:center;
+  justify-content:center;color:var(--muted);text-decoration:none}
+.dl svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.empty{padding:54px 20px;text-align:center;color:var(--muted);font-size:13.5px;grid-column:1/-1}
+.empty b{display:block;color:var(--ink-2);font-size:15px;font-weight:800;margin-bottom:6px}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(18,60,42,.08);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.dock-in{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
+.drow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dcnt{font-size:13px;font-weight:800;white-space:nowrap}
+.dcnt b{color:var(--heart);font-size:17px}
+.slots{display:flex;gap:6px;flex:1;justify-content:flex-end}
+.slot{width:36px;height:36px;border-radius:9px;background:#F4F8F6;border:1.5px dashed #D3DFD9;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;position:relative;cursor:default}
+.slot.filled{border-style:solid;border-color:var(--heart);background:#fff;cursor:pointer}
+.slot img{width:100%;height:100%;object-fit:cover}
+.slot b{font-size:11px;color:#BCC9C3;font-weight:800}
+.submit{width:100%;padding:13px;border-radius:999px;border:0;font-size:14.5px;font-weight:800;
+  background:#E7EDEA;color:#A9B6B0;cursor:not-allowed}
+.submit.ready{background:var(--heart);color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(240,69,107,.3)}
+.dock.done .slots,.dock.done .dcnt{opacity:.55}
+.submit.done{background:var(--mint);color:var(--green-d);cursor:default;box-shadow:none}
+
+.mask{position:fixed;inset:0;background:rgba(18,35,28,.5);backdrop-filter:blur(3px);z-index:60;display:none}
+.mask.on{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;background:#fff;border-radius:22px 22px 0 0;
+  padding:8px 18px calc(20px + env(safe-area-inset-bottom));transform:translateY(102%);
+  transition:transform .28s cubic-bezier(.2,.8,.3,1);max-height:88vh;overflow-y:auto;
+  visibility:hidden;pointer-events:none}
+.sheet.on{transform:translateY(0);visibility:visible;pointer-events:auto}
+.grab{width:38px;height:4px;border-radius:99px;background:#DCE7E2;margin:6px auto 14px}
+.sheet h3{font-size:17px;font-weight:900;letter-spacing:-.4px}
+.sheet .sub{font-size:12.5px;color:var(--ink-2);margin:5px 0 16px;line-height:1.6}
+.fld{margin-bottom:11px}
+.fld label{display:block;font-size:11.5px;font-weight:800;color:var(--muted);margin-bottom:5px}
+.fld select,.fld input{width:100%;font-size:15px;padding:13px;border:1.5px solid var(--line);border-radius:13px;
+  outline:0;background:#fff;color:var(--ink);appearance:none}
+.fld select:disabled{background:#F5F8F7;color:#B5C2BC}
+.fld select:focus,.fld input:focus{border-color:var(--green)}
+.selwrap{position:relative}
+.selwrap::after{content:'';position:absolute;right:15px;top:50%;width:8px;height:8px;border-right:2px solid var(--muted);
+  border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.sheet .go{width:100%;margin-top:8px;padding:15px;border-radius:999px;border:0;font-size:15px;font-weight:800;
+  background:#E7EDEA;color:#A9B6B0;cursor:not-allowed}
+.sheet .go.ready{background:var(--green);color:#fff;cursor:pointer;box-shadow:0 7px 18px rgba(24,160,106,.3)}
+
+/* 확인 모달 */
+.confirm{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;
+  z-index:62;background:#fff;border-radius:20px;padding:24px 22px;width:min(380px,calc(100% - 40px));
+  box-shadow:0 24px 60px rgba(18,35,28,.3);transition:.2s;text-align:center}
+.confirm.on{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
+.confirm h4{font-size:17px;font-weight:900;margin-bottom:8px}
+.confirm p{font-size:13px;color:var(--ink-2);line-height:1.65;margin-bottom:18px}
+.confirm .picks{display:flex;gap:6px;justify-content:center;margin-bottom:18px}
+.confirm .picks img{width:44px;height:44px;border-radius:9px;object-fit:cover;border:1.5px solid var(--line)}
+.cbtns{display:flex;gap:8px}
+.cbtns button{flex:1;padding:13px;border-radius:999px;border:0;font-size:14px;font-weight:800;cursor:pointer}
+.cno{background:#F0F4F2;color:var(--ink-2)}
+.cyes{background:var(--heart);color:#fff}
+
+.viewer{position:fixed;inset:0;z-index:70;background:#10161B;display:none;flex-direction:column}
+.viewer.on{display:flex}
+.vtop{display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top));
+  color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.vtop .vc{font-size:11px;font-weight:800;background:rgba(255,255,255,.14);padding:4px 9px;border-radius:999px;flex-shrink:0}
+.vtop .vt{font-size:12.5px;font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.9}
+.vx{width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:19px;cursor:pointer;flex-shrink:0}
+.vstage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;padding:10px;-webkit-overflow-scrolling:touch}
+.vstage img{max-width:100%;max-height:100%;object-fit:contain;background:#fff;border-radius:4px;cursor:zoom-in}
+.vstage.zoom{align-items:flex-start;justify-content:flex-start}
+.vstage.zoom img{max-width:none;max-height:none;width:250%;cursor:zoom-out}
+.vhint{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(72px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.16);color:#fff;font-size:11.5px;font-weight:700;padding:6px 13px;border-radius:999px;pointer-events:none}
+.vbot{display:flex;align-items:center;gap:8px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  border-top:1px solid rgba(255,255,255,.1)}
+.vnav{width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:17px;cursor:pointer;flex-shrink:0}
+.vnav:disabled{opacity:.3;cursor:default}
+.vpick{flex:1;padding:13px;border-radius:999px;border:0;font-size:14px;font-weight:800;background:#fff;color:var(--ink);cursor:pointer}
+.vpick.on{background:var(--heart);color:#fff}
+.vdl{width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;text-decoration:none}
+.vdl svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
+
+.toast{position:fixed;left:50%;bottom:calc(var(--dock-h) + 16px);transform:translateX(-50%) translateY(14px);
+  background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:13px 19px;border-radius:14px;z-index:80;
+  opacity:0;pointer-events:none;transition:.25s;max-width:calc(100% - 32px);text-align:center;line-height:1.5}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{background:#F7FAF9;border-top:1px solid var(--line);padding:22px 0;text-align:center;color:var(--muted);font-size:12px}
+
+@media(min-width:900px){
+  :root{--dock-h:84px}
+  .wrap{padding:0 28px}
+  header .wrap{height:74px}
+  .logo{width:44px;height:44px;border-radius:14px}
+  .brand b{font-size:15.5px}.brand span{display:block}
+  .zipbtn{display:inline-flex}
+  .hbtn{font-size:13.5px;padding:11px 20px}
+  .hero{padding:44px 0 40px}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}
+  .pill{font-size:12.5px;padding:7px 15px;margin-bottom:20px}
+  .hero h1{font-size:33px;letter-spacing:-1.4px;line-height:1.32}
+  .hero p{font-size:15px;max-width:540px}
+  .hero-fig{display:block;text-align:center}
+  .hero-fig img{width:100%;max-width:250px;filter:drop-shadow(0 16px 26px rgba(18,60,42,.16))}
+  .chip{font-size:13px;padding:8px 15px}
+  .notice{max-width:1184px;margin:26px auto 0;font-size:14px;padding:15px 20px}
+  .toolbar{top:74px;padding:0}
+  .tin{max-width:1240px;margin:0 auto;padding:0 28px;height:66px;display:flex;align-items:center;gap:14px}
+  .navs{padding:0;overflow:visible;flex:none}
+  .nv{font-size:13.5px;padding:9px 16px}
+  .trow{padding:0;gap:12px;flex:1;justify-content:flex-end}
+  .search{width:230px;flex:none;padding:10px 16px}
+  .vrow{padding:0;flex:none}
+  .viewed{font-size:12.5px;white-space:nowrap}
+  .grid{grid-template-columns:repeat(4,1fr);gap:24px;padding:28px 0 40px}
+  .code{font-size:11px;padding:5px 10px}
+  .dept{font-size:11.5px}.au{font-size:14.5px}.org{font-size:11.5px}
+  .meta{padding:15px 17px 16px}
+  .vote{font-size:13px;padding:9px 14px}
+  .dock{padding:12px 28px}
+  .dock-in{flex-direction:row;align-items:center;gap:20px}
+  .drow{flex:1}.slots{flex:none}.slot{width:40px;height:40px}
+  .submit{width:auto;padding:13px 30px;white-space:nowrap}
+  .sheet{left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-46%) scale(.97);opacity:0;
+    width:420px;border-radius:22px;padding:8px 26px 26px;transition:.22s;max-height:86vh}
+  .sheet.on{transform:translate(-50%,-50%) scale(1);opacity:1;visibility:visible;pointer-events:auto}
+  .grab{display:none} .sheet h3{margin-top:12px}
+  .vstage{padding:20px} .vbot{justify-content:center}
+  .vpick{flex:none;padding:13px 40px}
+  .toast{bottom:calc(var(--dock-h) + 24px)}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="brand">
+    <div class="logo"><img src="assets/white/mega-isak.png" alt=""></div>
+    <div><b>2026 전문연구원 워크숍</b><span>연구방법론 공유대회</span></div>
+  </div>
+  <div class="hact">
+    <a class="zipbtn" href="assets/posters-all.zip" download="2026전문연구원워크숍_포스터전체.zip">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      전체 내려받기
+    </a>
+    <button class="hbtn" id="startBtn">투표 시작</button>
+  </div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="pill">🔬 연구방법론 공유대회</div>
+    <h1>농촌진흥청 전문연구원들의 연구방법 중<br><mark>가장 흥미롭고 배워보고 싶은 5편</mark>을 골라주세요</h1>
+    <p>5개 기관 전문연구원이 자신만의 연구방법론을 포스터 한 장에 담았습니다. 포스터를 열어 확대해 읽고 하트를 눌러주세요.</p>
+    <div class="chips">
+      <span class="chip">출품 <b>56편</b></span><span class="chip">참여 <b>5개 기관</b></span><span class="chip">1인 <b>5표</b></span>
+    </div>
+  </div>
+  <div class="hero-fig"><img src="assets/char/char-cheer.png" alt=""></div>
+</div></section>
+
+<div class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12" y2="16"/></svg>
+  <span><b>5편을 모두 선택</b>해야 제출할 수 있어요 · 본인이 저자인 포스터는 투표할 수 없습니다</span>
+</div>
+
+<div class="toolbar"><div class="tin">
+  <div class="navs" id="navs"></div>
+  <div class="trow">
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8C9B94" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      <input id="q" placeholder="코드 · 저자 · 부서 검색">
+    </div>
+    <div class="tgl" id="shuf"><span class="sw"></span>섞기</div>
+  </div>
+  <div class="vrow">
+    <div class="viewed" id="viewed"></div>
+    <div class="tgl" id="unseen"><span class="sw"></span>안 본 것만</div>
+  </div>
+</div></div>
+
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<footer>연구정책과 연구제도팀</footer>
+
+<div class="dock" id="dock"><div class="dock-in">
+  <div class="drow">
+    <div class="dcnt"><b id="n">0</b> / 5 선택</div>
+    <div class="slots" id="slots"></div>
+  </div>
+  <button class="submit" id="submit">5편을 선택해주세요</button>
+</div></div>
+
+<div class="mask" id="mask"></div>
+<div class="sheet" id="sheet">
+  <div class="grab"></div>
+  <h3>투표자 정보</h3>
+  <div class="sub">본인이 저자인 포스터를 가려내기 위해 소속과 이름이 필요합니다.</div>
+  <div class="fld"><label>기관</label><div class="selwrap"><select id="s1"></select></div></div>
+  <div class="fld"><label>부 / 국</label><div class="selwrap"><select id="s2" disabled><option value="">기관을 먼저 선택</option></select></div></div>
+  <div class="fld"><label>과 / 센터</label><div class="selwrap"><select id="s3" disabled><option value="">부를 먼저 선택</option></select></div></div>
+  <div class="fld"><label>이름</label><input id="nm" placeholder="이름" maxlength="20" autocomplete="off"></div>
+  <button class="go" id="go">확인</button>
+</div>
+
+<div class="confirm" id="confirm">
+  <h4>이대로 제출할까요?</h4>
+  <p>제출 후에는 수정할 수 없습니다.<br>선택하신 5편을 확인해 주세요.</p>
+  <div class="picks" id="cpicks"></div>
+  <div class="cbtns"><button class="cno" id="cno">다시 볼게요</button><button class="cyes" id="cyes">제출하기</button></div>
+</div>
+
+<div class="viewer" id="viewer">
+  <div class="vtop"><span class="vc" id="vc"></span><span class="vt" id="vt"></span><button class="vx" id="vx">&times;</button></div>
+  <div class="vstage" id="vstage"></div>
+  <div class="vbot">
+    <button class="vnav" id="vprev">‹</button>
+    <button class="vpick" id="vpick">이 포스터 선택</button>
+    <a class="vdl" id="vdl" href="#"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    <button class="vnav" id="vnext">›</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ORG={"본청":{"n":"본청","b":{"기술협력국":["농업경영혁신과"]}},"농과원":{"n":"국립농업과학원","b":{"직속부서":["농촌환경안전과","농업유전자원센터"],"농업환경부":["기후변화대응과","토양물환경과","재생유기농업과"],"농업생물부":["농업미생물과","식물소재바이오공학과","산업곤충과","양봉과"],"농산물안전성부":["식물병방제과","해충잡초방제과","잔류화학평가과","독성위해평가과"],"농업공학부":["스마트팜개발과","밭농업기계과","농업로봇과","수확후관리공학과","농업위성센터"],"농업생명자원부":["디지털육종지원과","생물안전성과","슈퍼컴퓨팅센터"]}},"식량원":{"n":"국립식량과학원","b":{"직속부서":["고령지농업연구소","소득식량작물연구소","춘천출장소","철원출장소","영덕출장소","상주출장소"],"기초식량작물부":["품종개발과","재배생리과","작물환경과","맥류작물과","중북부작물연구센터","간척지농업연구센터"],"밭작물개발부":["밭작물개발과","경지이용작물과","스마트생산기술과"],"식품자원개발부":["식생활영양과","발효가공식품과","푸드테크소재과","품질관리평가과"]}},"원예원":{"n":"국립원예특작과학원","b":{"직속부서":["원예특작환경과","저장유통과","도시농업과","온난화대응농업연구소","시설원예연구소"],"원예작물부":["채소기초기반과","과수기초기반과","화훼기초기반과","사과연구센터","배연구센터","감귤연구센터","파속채소연구센터","북부원예시험장"],"인삼특작부":["특용작물육종과","특용작물재배과","특용작물이용과","버섯과"]}},"축산원":{"n":"국립축산과학원","b":{"직속부서":["가축질병방역과","가축유전자원센터"],"축산생명환경부":["동물바이오유전체과","축산푸드테크과","스마트축산환경과","가축정밀영양과","동물복지과"],"축산자원개발부":["가축개량평가과","낙농과","양돈과","조사료생산시스템과","한우연구센터","가금연구센터","난지축산연구센터"]}}};
+const P=[{"코드":"본청-01","기관코드":"본청","기관명":"본청","부서":["농업경영혁신과"],"저자":["양진석","황윤미"],"저자키":["농업경영혁신과|양진석","농업경영혁신과|황윤미"],"썸네일":"assets/poster/thumb/hq-01.jpg","이미지":"assets/poster/view/hq-01.jpg","PDF":"assets/pdf/hq-01.pdf","다운로드명":"본청-01_황윤미 외.pdf"},{"코드":"농과원-01","기관코드":"농과원","기관명":"국립농업과학원","부서":["토양물환경과"],"저자":["이단비"],"저자키":["토양물환경과|이단비"],"썸네일":"assets/poster/thumb/nas-01.jpg","이미지":"assets/poster/view/nas-01.jpg","PDF":"assets/pdf/nas-01.pdf","다운로드명":"농과원-01_이단비.pdf"},{"코드":"농과원-02","기관코드":"농과원","기관명":"국립농업과학원","부서":["재생유기농업과"],"저자":["강지원"],"저자키":["재생유기농업과|강지원"],"썸네일":"assets/poster/thumb/nas-02.jpg","이미지":"assets/poster/view/nas-02.jpg","PDF":"assets/pdf/nas-02.pdf","다운로드명":"농과원-02_강지원.pdf"},{"코드":"농과원-03","기관코드":"농과원","기관명":"국립농업과학원","부서":["재생유기농업과"],"저자":["김종혁"],"저자키":["재생유기농업과|김종혁"],"썸네일":"assets/poster/thumb/nas-03.jpg","이미지":"assets/poster/view/nas-03.jpg","PDF":"assets/pdf/nas-03.pdf","다운로드명":"농과원-03_김종혁.pdf"},{"코드":"농과원-04","기관코드":"농과원","기관명":"국립농업과학원","부서":["재생유기농업과"],"저자":["이여명"],"저자키":["재생유기농업과|이여명"],"썸네일":"assets/poster/thumb/nas-04.jpg","이미지":"assets/poster/view/nas-04.jpg","PDF":"assets/pdf/nas-04.pdf","다운로드명":"농과원-04_이여명.pdf"},{"코드":"농과원-05","기관코드":"농과원","기관명":"국립농업과학원","부서":["재생유기농업과"],"저자":["이영돈"],"저자키":["재생유기농업과|이영돈"],"썸네일":"assets/poster/thumb/nas-05.jpg","이미지":"assets/poster/view/nas-05.jpg","PDF":"assets/pdf/nas-05.pdf","다운로드명":"농과원-05_이영돈.pdf"},{"코드":"농과원-06","기관코드":"농과원","기관명":"국립농업과학원","부서":["식물소재바이오공학과"],"저자":["김주형","이대근"],"저자키":["식물소재바이오공학과|김주형","식물소재바이오공학과|이대근"],"썸네일":"assets/poster/thumb/nas-06.jpg","이미지":"assets/poster/view/nas-06.jpg","PDF":"assets/pdf/nas-06.pdf","다운로드명":"농과원-06_김주형 외.pdf"},{"코드":"농과원-07","기관코드":"농과원","기관명":"국립농업과학원","부서":["산업곤충과"],"저자":["김찬욱","장규동","박민지"],"저자키":["산업곤충과|김찬욱","산업곤충과|박민지","산업곤충과|장규동"],"썸네일":"assets/poster/thumb/nas-07.jpg","이미지":"assets/poster/view/nas-07.jpg","PDF":"assets/pdf/nas-07.pdf","다운로드명":"농과원-07_김찬욱 외.pdf"},{"코드":"농과원-08","기관코드":"농과원","기관명":"국립농업과학원","부서":["산업곤충과"],"저자":["이승현","박도이","이경원"],"저자키":["산업곤충과|박도이","산업곤충과|이경원","산업곤충과|이승현"],"썸네일":"assets/poster/thumb/nas-08.jpg","이미지":"assets/poster/view/nas-08.jpg","PDF":"assets/pdf/nas-08.pdf","다운로드명":"농과원-08_이승현 외.pdf"},{"코드":"농과원-09","기관코드":"농과원","기관명":"국립농업과학원","부서":["산업곤충과"],"저자":["장규동"],"저자키":["산업곤충과|장규동"],"썸네일":"assets/poster/thumb/nas-09.jpg","이미지":"assets/poster/view/nas-09.jpg","PDF":"assets/pdf/nas-09.pdf","다운로드명":"농과원-09_장규동.pdf"},{"코드":"농과원-10","기관코드":"농과원","기관명":"국립농업과학원","부서":["잔류화학평가과"],"저자":["김소희"],"저자키":["잔류화학평가과|김소희"],"썸네일":"assets/poster/thumb/nas-10.jpg","이미지":"assets/poster/view/nas-10.jpg","PDF":"assets/pdf/nas-10.pdf","다운로드명":"농과원-10_김소희.pdf"},{"코드":"농과원-11","기관코드":"농과원","기관명":"국립농업과학원","부서":["잔류화학평가과"],"저자":["신정은"],"저자키":["잔류화학평가과|신정은"],"썸네일":"assets/poster/thumb/nas-11.jpg","이미지":"assets/poster/view/nas-11.jpg","PDF":"assets/pdf/nas-11.pdf","다운로드명":"농과원-11_신정은.pdf"},{"코드":"농과원-12","기관코드":"농과원","기관명":"국립농업과학원","부서":["스마트팜개발과"],"저자":["이은주"],"저자키":["스마트팜개발과|이은주"],"썸네일":"assets/poster/thumb/nas-12.jpg","이미지":"assets/poster/view/nas-12.jpg","PDF":"assets/pdf/nas-12.pdf","다운로드명":"농과원-12_이은주.pdf"},{"코드":"농과원-13","기관코드":"농과원","기관명":"국립농업과학원","부서":["스마트팜개발과"],"저자":["홍영신","이재환"],"저자키":["스마트팜개발과|이재환","스마트팜개발과|홍영신"],"썸네일":"assets/poster/thumb/nas-13.jpg","이미지":"assets/poster/view/nas-13.jpg","PDF":"assets/pdf/nas-13.pdf","다운로드명":"농과원-13_홍영신 외.pdf"},{"코드":"농과원-14","기관코드":"농과원","기관명":"국립농업과학원","부서":["수확후관리공학과"],"저자":["강석호","이주오"],"저자키":["수확후관리공학과|강석호","수확후관리공학과|이주오"],"썸네일":"assets/poster/thumb/nas-14.jpg","이미지":"assets/poster/view/nas-14.jpg","PDF":"assets/pdf/nas-14.pdf","다운로드명":"농과원-14_이주오 외.pdf"},{"코드":"농과원-15","기관코드":"농과원","기관명":"국립농업과학원","부서":["수확후관리공학과"],"저자":["오현빈","최미희"],"저자키":["수확후관리공학과|오현빈","수확후관리공학과|최미희"],"썸네일":"assets/poster/thumb/nas-15.jpg","이미지":"assets/poster/view/nas-15.jpg","PDF":"assets/pdf/nas-15.pdf","다운로드명":"농과원-15_오현빈.pdf"},{"코드":"농과원-16","기관코드":"농과원","기관명":"국립농업과학원","부서":["디지털육종지원과"],"저자":["임근묵","홍준기","장윤희"],"저자키":["디지털육종지원과|임근묵","디지털육종지원과|장윤희","디지털육종지원과|홍준기"],"썸네일":"assets/poster/thumb/nas-16.jpg","이미지":"assets/poster/view/nas-16.jpg","PDF":"assets/pdf/nas-16.pdf","다운로드명":"농과원-16_임근묵 외.pdf"},{"코드":"농과원-17","기관코드":"농과원","기관명":"국립농업과학원","부서":["슈퍼컴퓨팅센터"],"저자":["장재영"],"저자키":["슈퍼컴퓨팅센터|장재영"],"썸네일":"assets/poster/thumb/nas-17.jpg","이미지":"assets/poster/view/nas-17.jpg","PDF":"assets/pdf/nas-17.pdf","다운로드명":"농과원-17_장재영.pdf"},{"코드":"농과원-18","기관코드":"농과원","기관명":"국립농업과학원","부서":["디지털육종지원과"],"저자":["김세원"],"저자키":["디지털육종지원과|김세원"],"썸네일":"assets/poster/thumb/nas-18.jpg","이미지":"assets/poster/view/nas-18.jpg","PDF":"assets/pdf/nas-18.pdf","다운로드명":"농과원-18_김세원.pdf"},{"코드":"농과원-19","기관코드":"농과원","기관명":"국립농업과학원","부서":["디지털육종지원과"],"저자":["염완우","문주연","소진표"],"저자키":["디지털육종지원과|문주연","디지털육종지원과|소진표","디지털육종지원과|염완우"],"썸네일":"assets/poster/thumb/nas-19.jpg","이미지":"assets/poster/view/nas-19.jpg","PDF":"assets/pdf/nas-19.pdf","다운로드명":"농과원-19_염완우 외.pdf"},{"코드":"농과원-20","기관코드":"농과원","기관명":"국립농업과학원","부서":["생물안전성과"],"저자":["윤상대","김은하","강하정"],"저자키":["생물안전성과|강하정","생물안전성과|김은하","생물안전성과|윤상대"],"썸네일":"assets/poster/thumb/nas-20.jpg","이미지":"assets/poster/view/nas-20.jpg","PDF":"assets/pdf/nas-20.pdf","다운로드명":"농과원-20_윤상대 외.pdf"},{"코드":"농과원-21","기관코드":"농과원","기관명":"국립농업과학원","부서":["독성위해평가과"],"저자":["이현준","이유경"],"저자키":["독성위해평가과|이유경","독성위해평가과|이현준"],"썸네일":"assets/poster/thumb/nas-21.jpg","이미지":"assets/poster/view/nas-21.jpg","PDF":"assets/pdf/nas-21.pdf","다운로드명":"농과원-21_이현중 외.pdf"},{"코드":"식량원-01","기관코드":"식량원","기관명":"국립식량과학원","부서":["재배생리과"],"저자":["김지훈"],"저자키":["재배생리과|김지훈"],"썸네일":"assets/poster/thumb/nics-01.jpg","이미지":"assets/poster/view/nics-01.jpg","PDF":"assets/pdf/nics-01.pdf","다운로드명":"식량원-01_김지훈.pdf"},{"코드":"식량원-02","기관코드":"식량원","기관명":"국립식량과학원","부서":["스마트생산기술과"],"저자":["배형진"],"저자키":["스마트생산기술과|배형진"],"썸네일":"assets/poster/thumb/nics-02.jpg","이미지":"assets/poster/view/nics-02.jpg","PDF":"assets/pdf/nics-02.pdf","다운로드명":"식량원-02_배형진.pdf"},{"코드":"식량원-03","기관코드":"식량원","기관명":"국립식량과학원","부서":["스마트생산기술과"],"저자":["Rameswor Maharjan"],"저자키":["스마트생산기술과|Rameswor Maharjan"],"썸네일":"assets/poster/thumb/nics-03.jpg","이미지":"assets/poster/view/nics-03.jpg","PDF":"assets/pdf/nics-03.pdf","다운로드명":"식량원-03_Rameswor Maharjan 외.pdf"},{"코드":"식량원-04","기관코드":"식량원","기관명":"국립식량과학원","부서":["스마트생산기술과"],"저자":["Guta Rahel Dinsa"],"저자키":["스마트생산기술과|Guta Rahel Dinsa"],"썸네일":"assets/poster/thumb/nics-04.jpg","이미지":"assets/poster/view/nics-04.jpg","PDF":"assets/pdf/nics-04.pdf","다운로드명":"식량원-04_Guta Rahel Dinsa 외.pdf"},{"코드":"식량원-05","기관코드":"식량원","기관명":"국립식량과학원","부서":["푸드테크소재과"],"저자":["김나연"],"저자키":["푸드테크소재과|김나연"],"썸네일":"assets/poster/thumb/nics-05.jpg","이미지":"assets/poster/view/nics-05.jpg","PDF":"assets/pdf/nics-05.pdf","다운로드명":"식량원-05_김나연.pdf"},{"코드":"식량원-06","기관코드":"식량원","기관명":"국립식량과학원","부서":["간척지농업연구센터"],"저자":["김민창"],"저자키":["간척지농업연구센터|김민창"],"썸네일":"assets/poster/thumb/nics-06.jpg","이미지":"assets/poster/view/nics-06.jpg","PDF":"assets/pdf/nics-06.pdf","다운로드명":"식량원-06_김민창.pdf"},{"코드":"식량원-07","기관코드":"식량원","기관명":"국립식량과학원","부서":["간척지농업연구센터"],"저자":["이세인"],"저자키":["간척지농업연구센터|이세인"],"썸네일":"assets/poster/thumb/nics-07.jpg","이미지":"assets/poster/view/nics-07.jpg","PDF":"assets/pdf/nics-07.pdf","다운로드명":"식량원-07_이세인.pdf"},{"코드":"식량원-08","기관코드":"식량원","기관명":"국립식량과학원","부서":["맥류작물과"],"저자":["정현진"],"저자키":["맥류작물과|정현진"],"썸네일":"assets/poster/thumb/nics-08.jpg","이미지":"assets/poster/view/nics-08.jpg","PDF":"assets/pdf/nics-08.pdf","다운로드명":"식량원-08_정현진.pdf"},{"코드":"식량원-09","기관코드":"식량원","기관명":"국립식량과학원","부서":["푸드테크소재과"],"저자":["이현재"],"저자키":["푸드테크소재과|이현재"],"썸네일":"assets/poster/thumb/nics-09.jpg","이미지":"assets/poster/view/nics-09.jpg","PDF":"assets/pdf/nics-09.pdf","다운로드명":"식량원-09_이현재.pdf"},{"코드":"식량원-10","기관코드":"식량원","기관명":"국립식량과학원","부서":["작물환경과"],"저자":["Muhammad Farooq"],"저자키":["작물환경과|Muhammad Farooq"],"썸네일":"assets/poster/thumb/nics-10.jpg","이미지":"assets/poster/view/nics-10.jpg","PDF":"assets/pdf/nics-10.pdf","다운로드명":"식량원-10_Muhammad Farooq.pdf"},{"코드":"식량원-11","기관코드":"식량원","기관명":"국립식량과학원","부서":["경지이용작물과"],"저자":["김지민","정승교"],"저자키":["경지이용작물과|김지민","경지이용작물과|정승교"],"썸네일":"assets/poster/thumb/nics-11.jpg","이미지":"assets/poster/view/nics-11.jpg","PDF":"assets/pdf/nics-11.pdf","다운로드명":"식량원-11_김지민 외.pdf"},{"코드":"식량원-12","기관코드":"식량원","기관명":"국립식량과학원","부서":["푸드테크소재과"],"저자":["남예은"],"저자키":["푸드테크소재과|남예은"],"썸네일":"assets/poster/thumb/nics-12.jpg","이미지":"assets/poster/view/nics-12.jpg","PDF":"assets/pdf/nics-12.pdf","다운로드명":"식량원-12_남예은.pdf"},{"코드":"식량원-13","기관코드":"식량원","기관명":"국립식량과학원","부서":["재배생리과"],"저자":["정윤정"],"저자키":["재배생리과|정윤정"],"썸네일":"assets/poster/thumb/nics-13.jpg","이미지":"assets/poster/view/nics-13.jpg","PDF":"assets/pdf/nics-13.pdf","다운로드명":"식량원-13_정윤정.pdf"},{"코드":"원예원-01","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["저장유통과"],"저자":["이진희"],"저자키":["저장유통과|이진희"],"썸네일":"assets/poster/thumb/nihhs-01.jpg","이미지":"assets/poster/view/nihhs-01.jpg","PDF":"assets/pdf/nihhs-01.pdf","다운로드명":"원예원-01_이진희.pdf"},{"코드":"원예원-02","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["저장유통과"],"저자":["채승훈","박도균"],"저자키":["저장유통과|박도균","저장유통과|채승훈"],"썸네일":"assets/poster/thumb/nihhs-02.jpg","이미지":"assets/poster/view/nihhs-02.jpg","PDF":"assets/pdf/nihhs-02.pdf","다운로드명":"원예원-02_채승훈 외.pdf"},{"코드":"원예원-03","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["도시농업과"],"저자":["홍인경"],"저자키":["도시농업과|홍인경"],"썸네일":"assets/poster/thumb/nihhs-03.jpg","이미지":"assets/poster/view/nihhs-03.jpg","PDF":"assets/pdf/nihhs-03.pdf","다운로드명":"원예원-03_홍인경.pdf"},{"코드":"원예원-04","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["도시농업과"],"저자":["추한나"],"저자키":["도시농업과|추한나"],"썸네일":"assets/poster/thumb/nihhs-04.jpg","이미지":"assets/poster/view/nihhs-04.jpg","PDF":"assets/pdf/nihhs-04.pdf","다운로드명":"원예원-04_추한나.pdf"},{"코드":"원예원-05","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["도시농업과"],"저자":["정유경"],"저자키":["도시농업과|정유경"],"썸네일":"assets/poster/thumb/nihhs-05.jpg","이미지":"assets/poster/view/nihhs-05.jpg","PDF":"assets/pdf/nihhs-05.pdf","다운로드명":"원예원-05_정유경.pdf"},{"코드":"원예원-06","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["도시농업과"],"저자":["심영도"],"저자키":["도시농업과|심영도"],"썸네일":"assets/poster/thumb/nihhs-06.jpg","이미지":"assets/poster/view/nihhs-06.jpg","PDF":"assets/pdf/nihhs-06.pdf","다운로드명":"원예원-06_심영도.pdf"},{"코드":"원예원-07","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["온난화대응농업연구소","파속채소연구센터"],"저자":["김병혁","권윤숙","최정혜"],"저자키":["온난화대응농업연구소|권윤숙","온난화대응농업연구소|김병혁","온난화대응농업연구소|최정혜","파속채소연구센터|권윤숙","파속채소연구센터|김병혁","파속채소연구센터|최정혜"],"썸네일":"assets/poster/thumb/nihhs-07.jpg","이미지":"assets/poster/view/nihhs-07.jpg","PDF":"assets/pdf/nihhs-07.pdf","다운로드명":"원예원-07_김병혁.pdf"},{"코드":"원예원-08","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["과수기초기반과"],"저자":["김유미","장시형","박태선"],"저자키":["과수기초기반과|김유미","과수기초기반과|박태선","과수기초기반과|장시형"],"썸네일":"assets/poster/thumb/nihhs-08.jpg","이미지":"assets/poster/view/nihhs-08.jpg","PDF":"assets/pdf/nihhs-08.pdf","다운로드명":"원예원-08_김유미 외.pdf"},{"코드":"원예원-09","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["과수기초기반과"],"저자":["배선화"],"저자키":["과수기초기반과|배선화"],"썸네일":"assets/poster/thumb/nihhs-09.jpg","이미지":"assets/poster/view/nihhs-09.jpg","PDF":"assets/pdf/nihhs-09.pdf","다운로드명":"원예원-09_배선화.pdf"},{"코드":"원예원-10","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["화훼기초기반과"],"저자":["이호진"],"저자키":["화훼기초기반과|이호진"],"썸네일":"assets/poster/thumb/nihhs-10.jpg","이미지":"assets/poster/view/nihhs-10.jpg","PDF":"assets/pdf/nihhs-10.pdf","다운로드명":"원예원-10_이호진.pdf"},{"코드":"원예원-11","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["배연구센터"],"저자":["백윤주"],"저자키":["배연구센터|백윤주"],"썸네일":"assets/poster/thumb/nihhs-11.jpg","이미지":"assets/poster/view/nihhs-11.jpg","PDF":"assets/pdf/nihhs-11.pdf","다운로드명":"원예원-11_백윤주.pdf"},{"코드":"원예원-12","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["배연구센터"],"저자":["황옥진","마오소핍"],"저자키":["배연구센터|마오소핍","배연구센터|황옥진"],"썸네일":"assets/poster/thumb/nihhs-12.jpg","이미지":"assets/poster/view/nihhs-12.jpg","PDF":"assets/pdf/nihhs-12.pdf","다운로드명":"원예원-12_황옥진 외.pdf"},{"코드":"원예원-13","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["감귤연구센터"],"저자":["정선아","Awraris Derbie Assefa"],"저자키":["감귤연구센터|Awraris Derbie Assefa","감귤연구센터|정선아"],"썸네일":"assets/poster/thumb/nihhs-13.jpg","이미지":"assets/poster/view/nihhs-13.jpg","PDF":"assets/pdf/nihhs-13.pdf","다운로드명":"원예원-13_정선아 외.pdf"},{"코드":"원예원-14","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["특용작물육종과"],"저자":["박재완"],"저자키":["특용작물육종과|박재완"],"썸네일":"assets/poster/thumb/nihhs-14.jpg","이미지":"assets/poster/view/nihhs-14.jpg","PDF":"assets/pdf/nihhs-14.pdf","다운로드명":"원예원-14_박재완.pdf"},{"코드":"원예원-15","기관코드":"원예원","기관명":"국립원예특작과학원","부서":["특용작물육종과"],"저자":["안우석"],"저자키":["특용작물육종과|안우석"],"썸네일":"assets/poster/thumb/nihhs-15.jpg","이미지":"assets/poster/view/nihhs-15.jpg","PDF":"assets/pdf/nihhs-15.pdf","다운로드명":"원예원-15_안우석.pdf"},{"코드":"축산원-01","기관코드":"축산원","기관명":"국립축산과학원","부서":["낙농과"],"저자":["김영래"],"저자키":["낙농과|김영래"],"썸네일":"assets/poster/thumb/nias-01.jpg","이미지":"assets/poster/view/nias-01.jpg","PDF":"assets/pdf/nias-01.pdf","다운로드명":"축산원-01_김영래.pdf"},{"코드":"축산원-02","기관코드":"축산원","기관명":"국립축산과학원","부서":["한우연구센터"],"저자":["도한울"],"저자키":["한우연구센터|도한울"],"썸네일":"assets/poster/thumb/nias-02.jpg","이미지":"assets/poster/view/nias-02.jpg","PDF":"assets/pdf/nias-02.pdf","다운로드명":"축산원-02_도한울.pdf"},{"코드":"축산원-03","기관코드":"축산원","기관명":"국립축산과학원","부서":["낙농과"],"저자":["박정국"],"저자키":["낙농과|박정국"],"썸네일":"assets/poster/thumb/nias-03.jpg","이미지":"assets/poster/view/nias-03.jpg","PDF":"assets/pdf/nias-03.pdf","다운로드명":"축산원-03_박정국.pdf"},{"코드":"축산원-04","기관코드":"축산원","기관명":"국립축산과학원","부서":["난지축산연구센터"],"저자":["Borhan Shokrollahi"],"저자키":["난지축산연구센터|Borhan Shokrollahi"],"썸네일":"assets/poster/thumb/nias-04.jpg","이미지":"assets/poster/view/nias-04.jpg","PDF":"assets/pdf/nias-04.pdf","다운로드명":"축산원-04_보르한.pdf"},{"코드":"축산원-05","기관코드":"축산원","기관명":"국립축산과학원","부서":["동물복지과"],"저자":["장세연","정원용"],"저자키":["동물복지과|장세연","동물복지과|정원용"],"썸네일":"assets/poster/thumb/nias-05.jpg","이미지":"assets/poster/view/nias-05.jpg","PDF":"assets/pdf/nias-05.pdf","다운로드명":"축산원-05_장세연 외.pdf"},{"코드":"축산원-06","기관코드":"축산원","기관명":"국립축산과학원","부서":["동물복지과"],"저자":["정운경"],"저자키":["동물복지과|정운경"],"썸네일":"assets/poster/thumb/nias-06.jpg","이미지":"assets/poster/view/nias-06.jpg","PDF":"assets/pdf/nias-06.pdf","다운로드명":"축산원-06_정운경 외.pdf"}];
+const MAX=5;
+const LS={voter:'wk26_voter',seen:'wk26_seen',ballot:'wk26_ballot'};
+const $=id=>document.getElementById(id);
+const norm=s=>String(s||'').replace(/\s+/g,'').toLowerCase();
+
+/* 저장소 안전 래퍼 — file:// 이나 시크릿 모드에서 차단돼도 화면이 죽지 않도록 */
+const store={
+  get(k){ try{return localStorage.getItem(k);}catch(e){return null;} },
+  set(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+};
+const parse=(s,d)=>{ try{return JSON.parse(s??'null')??d;}catch(e){return d;} };
+
+let voter=parse(store.get(LS.voter),null);
+let ballot=parse(store.get(LS.ballot),null);
+let seen=new Set(parse(store.get(LS.seen),[]));
+let sel=new Set(ballot?ballot.codes.map(c=>P.findIndex(p=>p.코드===c)).filter(i=>i>=0):[]);
+let orgFilter='all', query='', onlyUnseen=false, shuffled=false;
+let shuffleOrder=null, view=[], cur=0;
+
+const HS='<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>';
+const DLI='<svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+
+/* ── 기관 내비 ── */
+const ORGS=[...new Set(P.map(p=>p.기관코드))];
+$('navs').innerHTML=`<button class="nv on" data-org="all">전체 <i>${P.length}</i></button>`+
+  ORGS.map(o=>`<button class="nv" data-org="${o}">${o} <i>${P.filter(p=>p.기관코드===o).length}</i></button>`).join('');
+
+/* ── 목록 계산 ── */
+function baseOrder(){
+  if(!shuffled) return P.map((_,i)=>i);
+  if(!shuffleOrder){ shuffleOrder=P.map((_,i)=>i);
+    for(let i=shuffleOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffleOrder[i],shuffleOrder[j]]=[shuffleOrder[j],shuffleOrder[i]];}}
+  return shuffleOrder;
+}
+function compute(){
+  const q=norm(query);
+  view=baseOrder().filter(i=>{
+    const p=P[i];
+    if(orgFilter!=='all'&&p.기관코드!==orgFilter) return false;
+    if(onlyUnseen&&seen.has(p.코드)) return false;
+    if(q){ const hay=norm(p.코드+p.저자.join('')+p.부서.join('')+p.기관명); if(!hay.includes(q)) return false; }
+    return true;
+  });
+}
+function isMine(p){ return voter && p.저자키.some(k=>{
+  const [d,a]=k.split('|'); return norm(d)===norm(voter.dept)&&norm(a)===norm(voter.name); }); }
+
+/* ── 렌더 ── */
+function renderGrid(){
+  compute();
+  const g=$('grid');
+  if(!view.length){ g.innerHTML=`<div class="empty"><b>조건에 맞는 포스터가 없습니다</b>검색어나 필터를 바꿔보세요</div>`; return; }
+  g.innerHTML=view.map(i=>{const p=P[i];
+    return `<div class="card ${sel.has(i)?'sel':''} ${seen.has(p.코드)?'seen-on':''}" data-i="${i}">
+      <div class="thumb" data-open="${i}">
+        <span class="code">${p.코드}</span>
+        <span class="seen"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <img src="${p.썸네일}" alt="${p.코드}" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="dept">${p.부서.join(' · ')}</div>
+        <div class="au">${p.저자.join(', ')}</div>
+        <div class="org">${p.기관명}</div>
+        <div class="foot">
+          <button class="vote ${sel.has(i)?'on':''}" data-v="${i}">${HS}<span>${sel.has(i)?'선택됨':'선택'}</span></button>
+          <a class="dl" href="${p.PDF}" download="${p.다운로드명}" title="PDF 내려받기">${DLI}</a>
+        </div>
+      </div></div>`;}).join('');
+}
+function renderDock(){
+  $('n').textContent=sel.size;
+  const arr=[...sel];
+  $('slots').innerHTML=Array.from({length:MAX},(_,i)=>{
+    const id=arr[i];
+    return id===undefined?`<div class="slot"><b>${i+1}</b></div>`
+      :`<div class="slot filled" data-open="${id}"><img src="${P[id].썸네일}" alt=""></div>`;}).join('');
+  const b=$('submit'), left=MAX-sel.size;
+  if(ballot){ b.className='submit done'; b.textContent='✓ 제출 완료 — 감사합니다'; $('dock').classList.add('done'); }
+  else{ b.className='submit'+(left===0?' ready':''); b.textContent=left===0?'투표 제출하기':`${left}편 더 선택해주세요`; }
+}
+function renderViewed(){
+  $('viewed').innerHTML=`둘러본 포스터 <b>${seen.size}</b> / ${P.length}`;
+}
+function renderAll(){ renderGrid(); renderDock(); renderViewed(); }
+
+/* ── 선택 ── */
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._);t._=setTimeout(()=>t.classList.remove('on'),2800);}
+function pick(i){
+  if(ballot){ toast('이미 투표를 제출하셨습니다'); return; }
+  if(!voter){ openSheet(); toast('먼저 소속과 이름을 입력해주세요'); return; }
+  if(isMine(P[i])){ toast('본인이 저자인 포스터는 투표에서 제외됩니다'); return; }
+  if(sel.has(i)) sel.delete(i);
+  else{ if(sel.size>=MAX){ toast('최대 5편까지 선택할 수 있어요'); return; } sel.add(i); }
+  updateCard(i); renderDock();            // 전체 재렌더 없이 해당 카드만 갱신
+  if($('viewer').classList.contains('on')) syncViewer();
+}
+function updateCard(i){
+  const c=document.querySelector(`.card[data-i="${i}"]`); if(!c) return;
+  const on=sel.has(i), b=c.querySelector('[data-v]');
+  c.classList.toggle('sel',on); b.classList.toggle('on',on);
+  b.querySelector('span').textContent=on?'선택됨':'선택';
+}
+document.addEventListener('click',e=>{
+  const v=e.target.closest('[data-v]'); if(v){pick(+v.dataset.v);return;}
+  const o=e.target.closest('[data-open]'); if(o){openViewer(+o.dataset.open);return;}
+  const nv=e.target.closest('[data-org]');
+  if(nv){ orgFilter=nv.dataset.org; document.querySelectorAll('.nv').forEach(x=>x.classList.toggle('on',x===nv)); renderGrid(); return; }
+});
+$('q').addEventListener('input',e=>{query=e.target.value;renderGrid();});
+$('shuf').onclick=()=>{shuffled=!shuffled;$('shuf').classList.toggle('on',shuffled);renderGrid();};
+$('unseen').onclick=()=>{onlyUnseen=!onlyUnseen;$('unseen').classList.toggle('on',onlyUnseen);renderGrid();};
+
+/* ── 신원 ── */
+function openSheet(){ if(ballot){toast('이미 투표를 제출하셨습니다');return;} $('mask').classList.add('on');$('sheet').classList.add('on'); }
+function closeSheet(){ $('mask').classList.remove('on');$('sheet').classList.remove('on'); }
+$('startBtn').onclick=openSheet; $('mask').onclick=closeSheet;
+$('s1').innerHTML='<option value="">기관 선택</option>'+Object.keys(ORG).map(k=>`<option value="${k}">${ORG[k].n}</option>`).join('');
+$('s1').onchange=()=>{const k=$('s1').value,s2=$('s2'),s3=$('s3');
+  s3.innerHTML='<option value="">부를 먼저 선택</option>';s3.disabled=true;
+  if(!k){s2.innerHTML='<option value="">기관을 먼저 선택</option>';s2.disabled=true;return chk();}
+  s2.disabled=false;s2.innerHTML='<option value="">부 선택</option>'+Object.keys(ORG[k].b).map(b=>`<option>${b}</option>`).join('');chk();};
+$('s2').onchange=()=>{const k=$('s1').value,b=$('s2').value,s3=$('s3');
+  if(!b){s3.innerHTML='<option value="">부를 먼저 선택</option>';s3.disabled=true;return chk();}
+  s3.disabled=false;s3.innerHTML='<option value="">과 선택</option>'+ORG[k].b[b].map(d=>`<option>${d}</option>`).join('');chk();};
+$('s3').onchange=chk; $('nm').oninput=chk;
+function chk(){const ok=$('s1').value&&$('s2').value&&$('s3').value&&$('nm').value.trim();
+  $('go').className='go'+(ok?' ready':'');return !!ok;}
+$('go').onclick=()=>{ if(!chk())return;
+  voter={org:$('s1').value,orgName:ORG[$('s1').value].n,bu:$('s2').value,dept:$('s3').value,name:$('nm').value.trim()};
+  store.set(LS.voter,JSON.stringify(voter));
+  closeSheet(); $('startBtn').textContent=voter.name+'님';
+  toast(`${voter.dept} ${voter.name}님, 이제 투표할 수 있어요`); renderAll(); };
+
+/* ── 뷰어 ── */
+function openViewer(i){
+  cur=i; const p=P[i];
+  if(!seen.has(p.코드)){ seen.add(p.코드); store.set(LS.seen,JSON.stringify([...seen])); }
+  $('viewer').classList.add('on'); syncViewer(); renderViewed();
+  const c=document.querySelector(`.card[data-i="${i}"]`); if(c)c.classList.add('seen-on');
+}
+function syncViewer(){
+  const p=P[cur];
+  $('vc').textContent=p.코드; $('vt').textContent=`${p.부서.join(' · ')} · ${p.저자.join(', ')}`;
+  const st=$('vstage'); st.className='vstage';
+  st.innerHTML=`<img src="${p.이미지}" alt="${p.코드}"><div class="vhint">이미지를 탭하면 확대됩니다</div>`;
+  st.querySelector('img').onclick=()=>{st.classList.toggle('zoom');const h=st.querySelector('.vhint');if(h)h.remove();};
+  $('vdl').href=p.PDF; $('vdl').setAttribute('download',p.다운로드명);
+  const on=sel.has(cur), b=$('vpick');
+  b.className='vpick'+(on?' on':''); b.textContent=ballot?'제출 완료':(on?'선택 해제':'이 포스터 선택');
+  const idx=view.indexOf(cur);
+  $('vprev').disabled=idx<=0; $('vnext').disabled=idx<0||idx>=view.length-1;
+}
+$('vx').onclick=()=>$('viewer').classList.remove('on');
+$('vprev').onclick=()=>{const i=view.indexOf(cur);if(i>0)openViewer(view[i-1]);};
+$('vnext').onclick=()=>{const i=view.indexOf(cur);if(i>=0&&i<view.length-1)openViewer(view[i+1]);};
+$('vpick').onclick=()=>pick(cur);
+document.addEventListener('keydown',e=>{
+  if(!$('viewer').classList.contains('on'))return;
+  if(e.key==='Escape')$('viewer').classList.remove('on');
+  if(e.key==='ArrowLeft')$('vprev').click();
+  if(e.key==='ArrowRight')$('vnext').click();
+});
+
+/* ── 제출 ── */
+$('submit').onclick=()=>{
+  if(ballot||sel.size!==MAX)return;
+  $('cpicks').innerHTML=[...sel].map(i=>`<img src="${P[i].썸네일}" alt="">`).join('');
+  $('mask').classList.add('on'); $('confirm').classList.add('on');
+};
+$('cno').onclick=()=>{$('mask').classList.remove('on');$('confirm').classList.remove('on');};
+$('mask').addEventListener('click',()=>{$('confirm').classList.remove('on');});
+$('cyes').onclick=async()=>{
+  const btn=$('cyes'); btn.disabled=true; btn.textContent='제출 중…';
+  const payload={org:voter.orgName,orgCode:voter.org,bu:voter.bu,dept:voter.dept,name:voter.name,
+                 codes:[...sel].map(i=>P[i].코드),ts:new Date().toISOString()};
+  try{
+    const r=await fetch('/api/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const j=await r.json();
+    if(j.error==='dup') throw new Error('dup');
+    if(j.error) throw new Error(j.error);
+    ballot=payload; store.set(LS.ballot,JSON.stringify(ballot));
+    $('mask').classList.remove('on'); $('confirm').classList.remove('on');
+    renderAll(); toast('투표가 제출되었습니다. 감사합니다!');
+  }catch(err){
+    btn.disabled=false; btn.textContent='제출하기';
+    toast(err.message==='dup'?'이미 투표하셨습니다 (같은 소속·이름)':'제출 중 오류가 발생했어요. 잠시 후 다시 시도해주세요.');
+  }
+};
+
+/* ── 초기화 ── */
+if(voter) $('startBtn').textContent=voter.name+'님';
+if(ballot){ $('startBtn').textContent='투표 완료'; $('startBtn').classList.add('done'); }
+renderAll();
+</script>
+</body></html>

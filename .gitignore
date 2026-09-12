@@ -1,0 +1,12 @@
+# 원본 제출 PDF (237MB) — 배포에는 assets/pdf 압축본만 사용
+# ※ 맨 앞 '/'가 없으면 assets/poster 까지 제외되므로 반드시 최상위 고정
+/poster/
+# 캐릭터 원본 소스
+/image/
+# 빌드 템플릿 / 디자인 시안
+/_tpl.html
+/mockup/
+# 시스템 파일
+.DS_Store
+**/.DS_Store
+/preview.html
