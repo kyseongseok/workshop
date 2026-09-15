@@ -10,3 +10,8 @@
 .DS_Store
 **/.DS_Store
 /preview.html
+# 내부 심사자료 (대외비) — 절대 커밋 금지
+/심사자료/
+/심사자료.zip
+/data/scores.json
+/ziIvdAAk
