@@ -1,0 +1,96 @@
+[
+ {
+  "코드": "ai",
+  "제목": "AI 활용 교육",
+  "설명": "워크숍에서 진행된 생성형 AI 실습 강의 자료입니다. 국문·영문판을 모두 제공합니다.",
+  "자료": [
+   {
+    "ko": "assets/doc/ai-lee-ko.pdf",
+    "koName": "전문연구원 발표자료0918_최종 (1).pdf",
+    "en": "assets/doc/ai-lee-en.pdf",
+    "enName": "Research Data Analysis with Generative AI (2026 Workshop)_EN.pdf",
+    "thumb": "assets/doc/thumb/ai-lee.jpg",
+    "비율": 1.778,
+    "제목": "생성형 AI를 활용한 연구 데이터 분석",
+    "부제": "파일 분석부터 그래프·보고서·발표자료 생성까지",
+    "발표자": "국립농업과학원 재생유기농업과 이재형",
+    "쪽수": 45,
+    "키": "ai-lee",
+    "영문쪽수": 45
+   },
+   {
+    "ko": "assets/doc/ai-jang-ko.pdf",
+    "koName": "축산원_장동화.pdf",
+    "en": "assets/doc/ai-jang-en.pdf",
+    "enName": "Data Analysis with AI and Vibe Coding (2026 Workshop)_EN.pdf",
+    "thumb": "assets/doc/thumb/ai-jang.jpg",
+    "비율": 1.778,
+    "제목": "AI 활용 데이터 분석과 바이브 코딩",
+    "부제": "AI 개요부터 영상 검출 모델 학습과 연구 적용까지",
+    "발표자": "국립축산과학원 스마트축산환경과 장동화",
+    "쪽수": 42,
+    "키": "ai-jang",
+    "영문쪽수": 42
+   }
+  ],
+  "zip": "assets/doc/ai-edu.zip",
+  "zip명": "2026워크숍_AI활용교육_자료.zip"
+ },
+ {
+  "코드": "policy",
+  "제목": "제도 안내",
+  "설명": "전문연구원 운영규정 개정 계획과 정보보안 교육 자료입니다. 국문·영문판을 모두 제공합니다.",
+  "자료": [
+   {
+    "ko": "assets/doc/rule-ko.pdf",
+    "koName": "전문연구원 운영제도 개선 기본계획 (2026 워크숍 발표자료).pdf",
+    "en": "assets/doc/rule-en.pdf",
+    "enName": "Research Fellowship Program Reform Plan (2026 Workshop)_EN.pdf",
+    "thumb": "assets/doc/thumb/rule.jpg",
+    "비율": 1.777,
+    "제목": "전문연구원 운영제도 개선 기본계획",
+    "부제": "계약·연수비·권익보호 제도 개선 방향",
+    "발표자": "농촌진흥청 연구정책과 연구제도팀",
+    "쪽수": 20,
+    "키": "rule",
+    "영문쪽수": 20
+   },
+   {
+    "ko": "assets/doc/security-ko.pdf",
+    "koName": "2026년 전문연구원 워크숍_정보보안 교육(한글).pdf",
+    "en": "assets/doc/security-en.pdf",
+    "enName": "2026년 전문연구원 워크숍_정보보안 교육(영문).pdf",
+    "thumb": "assets/doc/thumb/security.jpg",
+    "비율": 1.79,
+    "제목": "정보보안 교육",
+    "부제": "연구자가 지켜야 할 정보보안 수칙",
+    "발표자": "농촌진흥청",
+    "쪽수": 20,
+    "키": "security",
+    "영문쪽수": 19
+   }
+  ],
+  "zip": "assets/doc/policy.zip",
+  "zip명": "2026워크숍_제도안내_자료.zip"
+ },
+ {
+  "코드": "recruit",
+  "제목": "연구직 공무원 채용 안내",
+  "설명": "국내 채용 절차 안내 자료로 국문만 제공됩니다.",
+  "자료": [
+   {
+    "ko": "assets/doc/recruit-ko.pdf",
+    "koName": "2026년도 연구직 공무원 채용 설명자료.pdf",
+    "thumb": "assets/doc/thumb/recruit.jpg",
+    "비율": 1.778,
+    "제목": "2026년도 연구직 공무원 채용 설명자료",
+    "부제": "채용 전형과 준비 방법 안내",
+    "발표자": "농촌진흥청",
+    "쪽수": 33,
+    "키": "recruit"
+   }
+  ],
+  "zip": null,
+  "zip명": null
+ }
+]

@@ -15,3 +15,11 @@
 /심사자료.zip
 /data/scores.json
 /ziIvdAAk
+
+# 내부 검토자료 · 백업 (배포 제외)
+/_internal/
+/web/
+/web.zip
+# 배포 제외 — 원본 발표자료(assets/doc 로 가공본 제공)
+/assets/material/
+/_upload/

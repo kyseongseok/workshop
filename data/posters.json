@@ -42,12 +42,12 @@
   "저자키": [
    "토양물환경과|이단비"
   ],
-  "파일": "nas-01",
-  "썸네일": "assets/poster/thumb/nas-01.jpg",
-  "이미지": "assets/poster/view/nas-01.jpg",
+  "파일": "nas-01-v2",
+  "썸네일": "assets/poster/thumb/nas-01-v2.jpg",
+  "이미지": "assets/poster/view/nas-01-v2.jpg",
   "비율": 1.0,
   "가로형": false,
-  "PDF": "assets/pdf/nas-01.pdf",
+  "PDF": "assets/pdf/nas-01-v2.pdf",
   "다운로드명": "농과원-01_이단비.pdf",
   "심사대상": true
  },
@@ -327,12 +327,12 @@
   "저자키": [
    "스마트팜개발과|이은주"
   ],
-  "파일": "nas-12",
-  "썸네일": "assets/poster/thumb/nas-12.jpg",
-  "이미지": "assets/poster/view/nas-12.jpg",
+  "파일": "nas-12-v2",
+  "썸네일": "assets/poster/thumb/nas-12-v2.jpg",
+  "이미지": "assets/poster/view/nas-12-v2.jpg",
   "비율": 1.0,
   "가로형": false,
-  "PDF": "assets/pdf/nas-12.pdf",
+  "PDF": "assets/pdf/nas-12-v2.pdf",
   "다운로드명": "농과원-12_이은주.pdf",
   "심사대상": true
  },
@@ -354,12 +354,12 @@
    "스마트팜개발과|이재환",
    "스마트팜개발과|홍영신"
   ],
-  "파일": "nas-13",
-  "썸네일": "assets/poster/thumb/nas-13.jpg",
-  "이미지": "assets/poster/view/nas-13.jpg",
+  "파일": "nas-13-v2",
+  "썸네일": "assets/poster/thumb/nas-13-v2.jpg",
+  "이미지": "assets/poster/view/nas-13-v2.jpg",
   "비율": 1.0,
   "가로형": false,
-  "PDF": "assets/pdf/nas-13.pdf",
+  "PDF": "assets/pdf/nas-13-v2.pdf",
   "다운로드명": "농과원-13_홍영신 외.pdf",
   "심사대상": true
  },
@@ -437,12 +437,12 @@
    "디지털육종지원과|장윤희",
    "디지털육종지원과|홍준기"
   ],
-  "파일": "nas-16",
-  "썸네일": "assets/poster/thumb/nas-16.jpg",
-  "이미지": "assets/poster/view/nas-16.jpg",
+  "파일": "nas-16-v2",
+  "썸네일": "assets/poster/thumb/nas-16-v2.jpg",
+  "이미지": "assets/poster/view/nas-16-v2.jpg",
   "비율": 1.0,
   "가로형": false,
-  "PDF": "assets/pdf/nas-16.pdf",
+  "PDF": "assets/pdf/nas-16-v2.pdf",
   "다운로드명": "농과원-16_임근묵 외.pdf",
   "심사대상": true
  },
@@ -462,12 +462,12 @@
   "저자키": [
    "슈퍼컴퓨팅센터|장재영"
   ],
-  "파일": "nas-17",
-  "썸네일": "assets/poster/thumb/nas-17.jpg",
-  "이미지": "assets/poster/view/nas-17.jpg",
+  "파일": "nas-17-v2",
+  "썸네일": "assets/poster/thumb/nas-17-v2.jpg",
+  "이미지": "assets/poster/view/nas-17-v2.jpg",
   "비율": 1.0,
   "가로형": false,
-  "PDF": "assets/pdf/nas-17.pdf",
+  "PDF": "assets/pdf/nas-17-v2.pdf",
   "다운로드명": "농과원-17_장재영.pdf",
   "심사대상": true
  },
@@ -487,12 +487,12 @@
   "저자키": [
    "디지털육종지원과|김세원"
   ],
-  "파일": "nas-18",
-  "썸네일": "assets/poster/thumb/nas-18.jpg",
-  "이미지": "assets/poster/view/nas-18.jpg",
+  "파일": "nas-18-v2",
+  "썸네일": "assets/poster/thumb/nas-18-v2.jpg",
+  "이미지": "assets/poster/view/nas-18-v2.jpg",
   "비율": 1.0,
   "가로형": false,
-  "PDF": "assets/pdf/nas-18.pdf",
+  "PDF": "assets/pdf/nas-18-v2.pdf",
   "다운로드명": "농과원-18_김세원.pdf",
   "심사대상": true
  },
