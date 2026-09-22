@@ -53,7 +53,7 @@ header .wrap{height:56px;display:flex;align-items:center;justify-content:space-b
 .notice svg{width:17px;height:17px;flex-shrink:0;color:var(--amber);margin-top:1px}
 .notice b{color:var(--heart)}
 
-.toolbar{position:sticky;top:56px;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+.toolbar{position:sticky;top:56px;margin-top:12px;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);margin-top:14px;padding:9px 0 8px}
 .navs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 2px;scrollbar-width:none}
 .navs::-webkit-scrollbar{display:none}
@@ -296,6 +296,15 @@ footer{background:#F7FAF9;border-top:1px solid var(--line);padding:22px 0;text-a
   <span>자료는 <b>내부 공유용</b>입니다 · 저자의 동의 없이 외부 배포하거나 무단으로 인용하지 말아주세요</span>
 </div>
 
+<div class="wrap" id="matWrap"></div>
+
+<div class="wrap">
+  <div class="sech"><i></i><h2>연구방법론 공유대회 포스터</h2><em>56편</em><span class="sp"></span>
+    <a class="zipsm" href="assets/posters-all.zip" download="2026워크숍_포스터전체.zip"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>포스터 56편 한번에 받기</a>
+  </div>
+  <div class="sechd">기관으로 추리거나 코드·저자·부서로 검색할 수 있습니다. 썸네일을 누르면 전체 화면으로 열립니다.</div>
+</div>
+
 <div class="toolbar"><div class="tin">
   <div class="navs" id="navs"></div>
   <div class="trow">
@@ -306,15 +315,7 @@ footer{background:#F7FAF9;border-top:1px solid var(--line);padding:22px 0;text-a
   </div>
 </div></div>
 
-<div class="wrap" id="matWrap"></div>
-
-<div class="wrap">
-  <div class="sech"><i></i><h2>연구방법론 공유대회 포스터</h2><em>56편</em><span class="sp"></span>
-    <a class="zipsm" href="assets/posters-all.zip" download="2026워크숍_포스터전체.zip"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>포스터 56편 한번에 받기</a>
-  </div>
-  <div class="sechd">썸네일을 누르면 전체 화면으로 열립니다. 카드의 내려받기 버튼으로 한 편씩 받을 수도 있습니다.</div>
-  <div class="grid" id="grid"></div>
-</div>
+<div class="wrap"><div class="grid" id="grid"></div></div>
 <footer>연구정책과 연구제도팀</footer>
 
 <div class="viewer" id="viewer">
